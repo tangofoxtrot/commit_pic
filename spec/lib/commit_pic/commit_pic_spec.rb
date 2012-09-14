@@ -1,4 +1,4 @@
-require 'lib/commit_pic'
+require 'commit_pic'
 describe CommitPic::Commit do
   let(:working_dir) { '/Users/rluther/Desktop/commit_pic/spec/fixtures/sample_app' }
   let(:project) { 'sidereel' }

@@ -1,4 +1,4 @@
-require 'lib/commit_pic/get_pic'
+require 'commit_pic'
 
 describe CommitPic::GetPic do
   let(:tempfile) { Tempfile.new('commit_pic') }
