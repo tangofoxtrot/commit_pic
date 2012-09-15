@@ -1,5 +1,6 @@
 require 'commit_pic'
 require 'pathname'
+
 describe CommitPic::Commit do
   let(:working_dir) {Pathname.new(File.expand_path(__FILE__ + '../../../../fixtures/sample_app')) }
   let(:project) { 'sidereel' }

@@ -4,7 +4,7 @@ module CommitPic
       @tempfile = tempfile
     end
 
-    def take_photo
+    def grab
       system("imagesnap #{@tempfile.path}")
     end
   end

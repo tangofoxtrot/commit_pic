@@ -7,7 +7,7 @@ describe CommitPic::GetPic do
   it 'takes a tempfile for initialization'
   it 'delegates to the system command' do
     get_pic.should_receive(:system).with("imagesnap #{tempfile.path}")
-    get_pic.take_photo
+    get_pic.grab
   end
 end
 
