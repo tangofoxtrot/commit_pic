@@ -22,5 +22,6 @@ Gem::Specification.new do |s|
   s.add_development_dependency "rspec"
   s.add_development_dependency "pry"
   s.add_runtime_dependency "git","~> 1.2.5"
+  s.add_runtime_dependency "httparty","~> 0.9.0"
   s.bindir = 'bin'
 end
