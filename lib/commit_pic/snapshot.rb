@@ -16,5 +16,13 @@ module CommitPic
     def git
       @git ||= Git.open(@working_dir)
     end
+
+    def attributes
+      {:sha =>commit.sha,
+        :author => commit.author,
+        :project => project_name,
+        :picture => photo
+      }
+    end
   end
 end

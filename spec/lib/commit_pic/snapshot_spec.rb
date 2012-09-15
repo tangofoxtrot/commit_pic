@@ -33,4 +33,18 @@ describe CommitPic::Snapshot do
       snapshot.photo.should == "pic"
     end
   end
+
+  describe 'attributes' do
+    it 'returns a hash of the required data' do
+      pic = stub('pic')
+      commit = stub('commit', :author => "author", :sha => "sha")
+      snapshot.stub(:commit => commit)
+      snapshot.stub(:photo => pic)
+      attributes = snapshot.attributes
+      attributes[:sha].should == commit.sha
+      attributes[:author].should == commit.author
+      attributes[:picture].should == pic
+      attributes[:project].should == project_name
+    end
+  end
 end
