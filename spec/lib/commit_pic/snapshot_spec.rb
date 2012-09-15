@@ -5,6 +5,8 @@ describe CommitPic::Snapshot do
   let(:snapshot) { described_class.new(project_name, working_dir) }
   let(:project_name) { 'awesome' }
 
+  before { CommitPic::GetPic.stub(:grab) }
+
   it 'has a project name' do
     snapshot.project_name.should == project_name
   end
