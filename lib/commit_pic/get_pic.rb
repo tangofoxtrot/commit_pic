@@ -1,15 +1,8 @@
 module CommitPic
-  class GetPic
-    def initialize(tempfile)
-      @tempfile = tempfile
-    end
-
-    def grab
-      system("imagesnap #{@tempfile.path}")
-    end
-
-    def self.grab
-      new(Tempfile.new('commit_pic'))
+  module GetPic
+    def self.grab(tempfile = Tempfile.new('commit_pic'))
+      system("imagesnap #{tempfile.path}")
+      tempfile
     end
   end
 end
