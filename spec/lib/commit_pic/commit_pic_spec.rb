@@ -1,6 +1,7 @@
 require 'commit_pic'
+require 'pathname'
 describe CommitPic::Commit do
-  let(:working_dir) { '/Users/rluther/Desktop/commit_pic/spec/fixtures/sample_app' }
+  let(:working_dir) {Pathname.new(File.expand_path(__FILE__ + '../../../../fixtures/sample_app')) }
   let(:project) { 'sidereel' }
   describe 'retrieving the last commit' do
     let(:commit_pic) { described_class.last_commit(project, working_dir) }
