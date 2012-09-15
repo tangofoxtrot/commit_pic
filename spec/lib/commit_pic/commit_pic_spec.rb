@@ -1,22 +1,23 @@
 require 'commit_pic'
-require 'pathname'
 
 describe CommitPic::Commit do
-  let(:working_dir) {Pathname.new(File.expand_path(__FILE__ + '../../../../fixtures/sample_app')) }
-  let(:project) { 'sidereel' }
-  describe 'retrieving the last commit' do
-    let(:commit_pic) { described_class.last_commit(project, working_dir) }
+  let(:git_commit) { stub(:sha => "abc", :author => stub(:name => "Author Name")) }
+  let(:commit) { described_class.new(git_commit) }
 
-    it 'returns the project' do
-      commit_pic.project.should == project
-    end
+  it 'has a sha' do
+    commit.sha.should == 'abc'
+  end
 
-    it 'retrieves the sha' do
-      commit_pic.sha.should == 'ef23b0c389a637b3c112993d981dd69178ad1eb4'
-    end
+  it 'has an author' do
+    commit.author.should == 'Author Name'
+  end
 
-    it 'retrieves the authors' do
-      commit_pic.author.should == 'Richard Luther'
+  describe 'retrieving the last_commit' do
+    let(:git) { stub("Git object") }
+    it 'grabs the last commit from the git object' do
+      git.should_receive(:log).with(1).and_return([git_commit])
+      described_class.last_commit(git).should == described_class.new(git_commit)
     end
   end
+
 end

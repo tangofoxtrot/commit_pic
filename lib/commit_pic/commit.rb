@@ -1,9 +1,6 @@
-require 'git'
 module CommitPic
   class Commit
-    attr_reader :project
-    def initialize(project, commit)
-      @project = project
+    def initialize(commit)
       @commit = commit
     end
 
@@ -15,9 +12,12 @@ module CommitPic
       @commit.author.name
     end
 
-    def self.last_commit(project, working_dir)
-      g = Git.open(working_dir)
-      new(project, g.log(1).first)
+    def ==(other_commit)
+      self.sha == other_commit.sha
+    end
+
+    def self.last_commit(git)
+      new(git.log(1).first)
     end
   end
 end
