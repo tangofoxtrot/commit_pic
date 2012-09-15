@@ -5,8 +5,8 @@ require "commit_pic/version"
 Gem::Specification.new do |s|
   s.name        = "commit_pic"
   s.version     = CommitPic::VERSION
-  s.authors     = ["Richard Luther"]
-  s.email       = ["richard.luther@gmail.com"]
+  s.authors     = ["Richard Luther", "Laura DeWald"]
+  s.email       = ["richard.luther@gmail.com", "laurardewald@gmail.com"]
   s.homepage    = ""
   s.summary     = %q{TODO: Write a gem summary}
   s.description = %q{TODO: Write a gem description}
@@ -21,4 +21,5 @@ Gem::Specification.new do |s|
   # specify any dependencies here; for example:
   s.add_development_dependency "rspec"
   s.add_runtime_dependency "git","~> 1.2.5"
+  s.bindir = 'bin'
 end
